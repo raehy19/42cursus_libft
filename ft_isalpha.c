@@ -6,20 +6,20 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 15:44:46 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/05 16:18:44 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/06 17:28:11 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isupper(int c)
 {
-	if (c > 100 && c < 133)
+	if (c >= 'A' && c <= 'Z')
 		return (1);
 	return (0);
 }
 
 int	ft_islower(int c)
 {
-	if (c > 140 && c < 173)
+	if (c > 'a' && c < 'z')
 		return (1);
 	return (0);
 }
