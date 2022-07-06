@@ -6,12 +6,11 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 14:36:51 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/06 14:36:53 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/06 17:25:53 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
+#include "libft.h"
 
 int	ft_isalnum(int c)
 {

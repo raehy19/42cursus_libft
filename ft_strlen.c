@@ -6,11 +6,13 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 16:42:32 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/04 21:14:04 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/06 17:25:46 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *s)
+#include "libft.h"
+
+size_t	ft_strlen(const char *s)
 {
 	int	i;
 
