@@ -6,7 +6,7 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 16:42:32 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/06 17:25:46 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/08 23:30:35 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (*(s + i) != 0)
