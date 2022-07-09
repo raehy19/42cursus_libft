@@ -6,7 +6,7 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 17:21:29 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/09 17:51:10 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/09 21:47:12 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strchr(const char *s, int c)
 	while (*(s + i))
 	{
 		if (*(s + i) == (char) c)
-			return (s + i);
+			return ((char *)(s + i));
 		++i;
 	}
 	return ((void *) 0);
