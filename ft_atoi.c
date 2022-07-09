@@ -6,19 +6,19 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 20:34:36 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/09 20:50:52 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/09 21:32:53 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_delete_whitespace(char *str, int *i)
+void	ft_delete_whitespace(const char *str, int *i)
 {
 	while ((8 < *(str + *i) && *(str + *i) < 14) || *(str + *i) == ' ')
 		++(*i);
 }
 
-int	ft_cal_sign(char *str, int *i)
+int	ft_cal_sign(const char *str, int *i)
 {
 	int	sign;
 
