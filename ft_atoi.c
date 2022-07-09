@@ -6,7 +6,7 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 20:34:36 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/09 21:32:53 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/09 22:02:25 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_cal_sign(const char *str, int *i)
 	return (sign);
 }
 
-int	atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int			i;
 	int			sign;
