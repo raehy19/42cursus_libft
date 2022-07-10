@@ -6,16 +6,17 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 20:34:36 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/09 22:02:25 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/10 20:45:32 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_delete_whitespace(const char *str, int *i)
+int	ft_isspace(int c)
 {
-	while ((8 < *(str + *i) && *(str + *i) < 14) || *(str + *i) == ' ')
-		++(*i);
+	if ((c > 8 && c < 14) || c == ' ')
+		return (1);
+	return (0);
 }
 
 int	ft_cal_sign(const char *str, int *i)
@@ -23,10 +24,11 @@ int	ft_cal_sign(const char *str, int *i)
 	int	sign;
 
 	sign = 1;
-	if (ft_isdigit(*(str + *i)))
+	if (*(str + *i) == '+')
+		++(*i);
+	if (*(str + *i) == '-')
 	{
-		if (*(str + *i) == '-')
-			sign = -1;
+		sign = -1;
 		++(*i);
 	}
 	return (sign);
@@ -39,14 +41,18 @@ int	ft_atoi(const char *str)
 	long long	result;
 
 	i = 0;
-	ft_delete_whitespace(str, &i);
+	while (ft_isspace(*(str + i)))
+		++i;
 	sign = ft_cal_sign(str, &i);
 	result = 0;
 	while (ft_isdigit(*(str + i)))
 	{
 		result = result * 10 + (long long)(*(str + i) - '0');
+		if (result * sign > 2147483647)
+			return (-1);
+		if (result * sign < -2147483648)
+			return (0);
 		++i;
 	}
-	result = result * sign;
-	return ((int)result);
+	return ((int)(result * sign));
 }
