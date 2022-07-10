@@ -6,7 +6,7 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 17:52:51 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/10 15:52:16 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/10 16:43:51 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 
-	i = ft_strlen(s) - 1;
+	i = ft_strlen(s);
 	while (i > -1)
 	{
 		if (*(s + i) == (char) c)
