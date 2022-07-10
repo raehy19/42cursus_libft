@@ -6,7 +6,7 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 17:57:54 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/09 21:51:48 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/10 15:52:01 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return ((((unsigned char *) s) + i));
 		++i;
 	}
-	return ((void *) 0);
+	return (NULL);
 }

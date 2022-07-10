@@ -6,9 +6,11 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 17:21:29 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/09 21:47:12 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/10 15:52:03 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -21,5 +23,5 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)(s + i));
 		++i;
 	}
-	return ((void *) 0);
+	return (NULL);
 }

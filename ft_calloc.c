@@ -6,7 +6,7 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 20:55:03 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/09 21:22:32 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/10 15:51:59 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ void	*ft_calloc(size_t count, size_t size)
 
 	p = malloc(count * size);
 	if (!p)
-		return ((void *) 0);
+		return (NULL);
 	return (ft_memset(p, 0, count * size));
 }
