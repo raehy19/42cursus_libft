@@ -6,16 +6,17 @@
 #    By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/04 17:19:28 by rjeong            #+#    #+#              #
-#    Updated: 2022/07/04 20:47:27 by rjeong           ###   ########.fr        #
+#    Updated: 2022/07/11 22:02:51 by rjeong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+NAME := libft.a
+CC := gcc
+CFLAGS := -Wall -Wextra -Werror
+INCLUDES := libft.h
+RM := rm -f
 
-NAME = libft.a
-
-SRCS = \
+SRCS_MANDATORY = \
 	ft_isalpha.c \
 	ft_isdigit.c \
 	ft_isalnum.c \
@@ -51,21 +52,35 @@ SRCS = \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
 
+SRCS_BONUS = \
+	ft_lstnew.c \
+	ft_lstadd_front.c \
+	ft_lstsize.c \
+	ft_lstlast.c \
+	ft_lstadd_back.c \
+	ft_lstdelone.c \
+	ft_lstclear.c \
+	ft_lstiter.c \
+	ft_lstmap.c
 
-OBJS = $(SRCS:.c=.o)
-INCLUDES = libft.h
-RM = rm -f
 
-all : $(NAME)
+OBJS_MANDATORY = $(SRCS_MANDATORY:.c=.o)
 
-$(NAME) : $(OBJS)
-	ar rs $@ $^
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+
+mandatory : $(OBJS_MANDATORY)
+	ar rs $(NAME) $^
+
+bonus : $(OBJS_MANDATORY) $(OBJS_BONUS)
+	ar rs $(NAME) $^
+
+all : mandatory
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $^ -o $@ -I $(INCLUDES)
 
 clean :
-	$(RM) $(OBJS)
+	$(RM) $(OBJS_MANDATORY) $(OBJS_BONUS)
 
 fclean : clean
 	$(RM) $(NAME)
