@@ -6,7 +6,7 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 21:13:04 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/10 15:52:07 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/11 15:12:32 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup(const char *s1)
 	char	*dst;
 
 	len = ft_strlen(s1);
-	dst = malloc(len + 1);
+	dst = (char *) malloc(len + 1);
 	if (!dst)
 		return (NULL);
 	return (ft_memcpy(dst, s1, len + 1));

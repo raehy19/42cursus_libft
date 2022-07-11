@@ -6,7 +6,7 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 22:04:18 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/11 11:21:56 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/11 15:12:34 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	while (ft_is_c_in_set(*(s1 + i + size - 1), set) && size > 0)
 		--size;
-	dst = malloc(sizeof(char) * (size + 1));
+	dst = (char *) malloc(sizeof(char) * (size + 1));
 	if (!dst)
 		return (NULL);
 	ft_memmove(dst, s1 + i, size);

@@ -6,7 +6,7 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 20:47:52 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/10 21:26:38 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/11 15:12:38 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (start + 1 > ft_strlen(s))
 		len = 0;
-	dst = malloc(len + 1);
+	dst = (char *) malloc(sizeof(char) * (len + 1));
 	if (!dst)
 		return (NULL);
 	ft_strlcpy(dst, s + start, len + 1);
