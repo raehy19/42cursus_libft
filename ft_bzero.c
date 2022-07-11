@@ -6,7 +6,7 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 19:56:15 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/09 21:44:02 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/11 17:05:35 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ void	ft_bzero(void *s, size_t n)
 		*(((unsigned char *)s) + i) = 0;
 		++i;
 	}
+	return ;
 }
