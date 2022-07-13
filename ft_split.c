@@ -6,57 +6,89 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 12:53:13 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/11 15:14:16 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/13 21:27:15 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_count_word(const char *s, char c)
+size_t	ft_count_word(const char *s, char c)
 {
-	int	i;
-	int	cnt;
+	size_t	i;
+	size_t	cnt;
 
-	i = 0;
-	cnt = 1;
-	if (!(*(s + i)))
+	if (!(*s))
 		return (0);
-	while (*(s + i) == c)
-		++i;
-	while (*(s + i + 1))
+	i = 0;
+	cnt = 0;
+	while (*(s + i))
 	{
-		if (*(s + i) == c && *(s + i + 1) != c)
-			++cnt;
-		++i;
+		while (*(s + i) && *(s + i) == c)
+			++i;
+		if (!(*(s + i)))
+			break ;
+		++cnt;
+		while (*(s + i) && *(s + i) != c)
+			++i;
 	}
 	return (cnt);
+}
+
+char	*ft_split_dup(const char *s, char c, size_t *i)
+{
+	char	*temp;
+	int		word_size;
+
+	word_size = 0;
+	while (*(s + (*i)) == c)
+		++(*i);
+	while (*(s + (*i) + word_size) && *(s + (*i) + word_size) != c)
+		++word_size;
+	temp = (char *) malloc(sizeof(char) * (word_size + 1));
+	if (!(temp))
+		return (NULL);
+	ft_memmove(temp, s + (*i), word_size);
+	*(temp + word_size) = '\0';
+	(*i) += word_size;
+	return (temp);
+}
+
+void	*ft_mem_alloc_fail(char **dst, size_t error_i)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < error_i)
+	{
+		free(*(dst + i));
+		*(dst + i) = NULL;
+		++i;
+	}
+	free(dst);
+	dst = NULL;
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**dst;
-	int		di;
-	int		i;
-	int		wi;
+	size_t	word_total;
+	size_t	word_i;
+	size_t	i;
 
-	dst = (char **) malloc(sizeof(char *) * ft_count_word(s, c));
+	word_total = ft_count_word(s, c);
+	dst = (char **) malloc(sizeof(char *) * (word_total + 1));
 	if (!dst)
 		return (NULL);
-	di = 0;
+	word_i = 0;
 	i = 0;
-	while (di < ft_count_word(s, c))
+	while (word_i < word_total)
 	{
-		while (*(s + i) == c)
-			++i;
-		wi = 0;
-		while (*(s + i + wi) != c && *(s + i + wi))
-			++wi;
-		*(dst + di) = (char *) malloc(sizeof(char) * (wi + 1));
-		if (!(*(dst + di)))
-			return (NULL);
-		ft_strlcpy(*(dst + di), s + i, wi + 1);
-		++di;
-		i += wi;
+		*(dst + word_i) = ft_split_dup(s, c, &i);
+		if (!(*(dst + word_i)))
+			return (ft_mem_alloc_fail(dst, word_i));
+		++word_i;
 	}
+	*(dst + word_total) = NULL;
 	return (dst);
 }
