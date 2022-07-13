@@ -6,12 +6,12 @@
 #    By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/04 17:19:28 by rjeong            #+#    #+#              #
-#    Updated: 2022/07/13 12:41:48 by rjeong           ###   ########.fr        #
+#    Updated: 2022/07/13 21:59:21 by rjeong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := libft.a
-CC := gcc
+CC := cc
 CFLAGS := -Wall -Wextra -Werror
 INCLUDES := libft.h
 RM := rm -f
