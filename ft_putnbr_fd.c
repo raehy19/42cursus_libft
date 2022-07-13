@@ -6,7 +6,7 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:51:12 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/11 18:10:38 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/13 21:57:20 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_cal_putnbr(long long n, int fd)
 {
 	char	c;
 
-	if (n > 0)
+	if (n > 9)
 		ft_cal_putnbr(n / 10, fd);
 	c = (char)('0' + (n % 10));
 	write(fd, &c, 1);
