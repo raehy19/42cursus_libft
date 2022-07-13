@@ -6,7 +6,7 @@
 #    By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/04 17:19:28 by rjeong            #+#    #+#              #
-#    Updated: 2022/07/11 22:02:51 by rjeong           ###   ########.fr        #
+#    Updated: 2022/07/13 12:41:48 by rjeong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,18 +63,17 @@ SRCS_BONUS = \
 	ft_lstiter.c \
 	ft_lstmap.c
 
-
 OBJS_MANDATORY = $(SRCS_MANDATORY:.c=.o)
 
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
-mandatory : $(OBJS_MANDATORY)
-	ar rs $(NAME) $^
+$(NAME) : $(OBJS_MANDATORY)
+	ar rs $@ $^
+
+all : $(NAME)
 
 bonus : $(OBJS_MANDATORY) $(OBJS_BONUS)
 	ar rs $(NAME) $^
-
-all : mandatory
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $^ -o $@ -I $(INCLUDES)
@@ -87,4 +86,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : $(NAME) all clean fclean re
+.PHONY : $(NAME) all bonus clean fclean re
