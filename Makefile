@@ -84,6 +84,7 @@ clean :
 fclean : clean
 	$(RM) $(NAME)
 
-re : fclean all
+re : fclean
+	make all
 
 .PHONY : $(NAME) all bonus clean fclean re
