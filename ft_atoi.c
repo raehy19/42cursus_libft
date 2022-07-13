@@ -6,7 +6,7 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 20:34:36 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/10 20:45:32 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/13 12:35:44 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_cal_sign(const char *str, int *i)
 	sign = 1;
 	if (*(str + *i) == '+')
 		++(*i);
-	if (*(str + *i) == '-')
+	else if (*(str + *i) == '-')
 	{
 		sign = -1;
 		++(*i);
