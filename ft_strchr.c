@@ -6,7 +6,7 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 17:21:29 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/10 16:42:50 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/14 19:22:56 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)(s + i));
 		++i;
 	}
-	if (c == 0)
+	if ((char) c == '\0')
 		return ((char *)(s + i));
 	return (NULL);
 }
