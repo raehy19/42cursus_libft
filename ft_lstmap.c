@@ -6,7 +6,7 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 12:20:44 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/12 14:43:48 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/14 17:45:55 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,27 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	**head;
+	t_list	*head;
 	t_list	*temp_read;
-	t_list	*temp_del;
+	t_list	*temp_write;
 
 	if (!lst)
 		return (NULL);
-	head = malloc(sizeof(t_list *));
-	*head = NULL;
 	temp_read = lst;
-	while (temp_read)
+	temp_write = ft_lstnew(f(temp_read->content));
+	if (!temp_write)
+		return (NULL);
+	head = temp_write;
+	while (temp_read->next)
 	{
-		ft_lstadd_back(head, ft_lstnew(f(temp_read->content)));
-		temp_del = temp_read;
 		temp_read = temp_read->next;
-		if (del)
-			ft_lstdelone(temp_del, del);
+		temp_write->next = ft_lstnew(f(temp_read->content));
+		if (!(temp_write->next))
+		{
+			ft_lstclear(&head, del);
+			return (NULL);
+		}
+		temp_write = temp_write->next;
 	}
-	return (*head);
+	return (head);
 }
