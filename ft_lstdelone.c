@@ -6,7 +6,7 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 11:28:45 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/12 11:54:18 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/14 20:59:05 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	del(lst->content);
 	free(lst);
-	lst = NULL;
 	return ;
 }

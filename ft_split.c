@@ -6,7 +6,7 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 12:53:13 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/13 21:27:15 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/14 20:58:55 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	*ft_mem_alloc_fail(char **dst, size_t error_i)
 		++i;
 	}
 	free(dst);
-	dst = NULL;
 	return (NULL);
 }
 
