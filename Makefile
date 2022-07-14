@@ -6,17 +6,19 @@
 #    By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/04 17:19:28 by rjeong            #+#    #+#              #
-#    Updated: 2022/07/13 21:59:21 by rjeong           ###   ########.fr        #
+#    Updated: 2022/07/14 21:57:03 by rjeong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := libft.a
+BONUS := libft.a
 CC := cc
 CFLAGS := -Wall -Wextra -Werror
-INCLUDES := libft.h
 RM := rm -f
+AR := ar
+ARFLAG := crs
 
-SRCS_MANDATORY = \
+SRCS_MANDATORY := \
 	ft_isalpha.c \
 	ft_isdigit.c \
 	ft_isalnum.c \
@@ -52,7 +54,7 @@ SRCS_MANDATORY = \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
 
-SRCS_BONUS = \
+SRCS_BONUS := \
 	ft_lstnew.c \
 	ft_lstadd_front.c \
 	ft_lstsize.c \
@@ -63,23 +65,23 @@ SRCS_BONUS = \
 	ft_lstiter.c \
 	ft_lstmap.c
 
-OBJS_MANDATORY = $(SRCS_MANDATORY:.c=.o)
+OBJS = $(SRCS_MANDATORY:.c=.o)
 
-OBJS_BONUS = $(SRCS_BONUS:.c=.o)
-
-$(NAME) : $(OBJS_MANDATORY)
-	ar rs $@ $^
+OBJS_BONUS = $(OBJS) $(SRCS_BONUS:.c=.o)
 
 all : $(NAME)
 
-bonus : $(OBJS_MANDATORY) $(OBJS_BONUS)
-	ar rs $(NAME) $^
+bonus : $(OBJS_BONUS)
+	make OBJS="$(OBJS_BONUS)" all
+
+$(NAME) : $(OBJS)
+	$(AR) $(ARFLAG) $@ $^
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $^ -o $@ -I $(INCLUDES)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
-	$(RM) $(OBJS_MANDATORY) $(OBJS_BONUS)
+	$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean : clean
 	$(RM) $(NAME)
@@ -87,4 +89,4 @@ fclean : clean
 re : fclean
 	make all
 
-.PHONY : $(NAME) all bonus clean fclean re
+.PHONY : all bonus clean fclean re
