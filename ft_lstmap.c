@@ -14,7 +14,7 @@
 
 void	*ft_mem_alloc_fail(t_list **head, void (*del)(void *))
 {
-	ft_lstclear(&head, del);
+	ft_lstclear(head, del);
 	return (NULL);
 }
 
