@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	*ft_mem_alloc_fail(t_list **head, void (*del)(void *), void *content)
+void	*ft_lstmap_mem_free(t_list **head, void (*del)(void *), void *content)
 {
 	if (content)
 		del(content);
@@ -33,7 +33,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	temp_content = f(temp_read->content);
 	temp_write = ft_lstnew(temp_content);
 	if (!temp_write || !temp_content)
-		return (ft_mem_alloc_fail(&temp_write, del, temp_content));
+		return (ft_lstmap_mem_free(&temp_write, del, temp_content));
 	head = temp_write;
 	while (temp_read->next)
 	{
@@ -41,7 +41,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		temp_content = f(temp_read->content);
 		temp_write->next = ft_lstnew(temp_content);
 		if (!(temp_write->next) || !temp_content)
-			return (ft_mem_alloc_fail(&head, del, temp_content));
+			return (ft_lstmap_mem_free(&head, del, temp_content));
 		temp_write = temp_write->next;
 	}
 	return (head);

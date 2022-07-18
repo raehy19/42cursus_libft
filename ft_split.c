@@ -53,7 +53,7 @@ char	*ft_split_dup(const char *s, char c, size_t *i)
 	return (temp);
 }
 
-void	*ft_mem_alloc_fail(char **dst, size_t error_i)
+void	*ft_split_mem_free(char **dst, size_t error_i)
 {
 	size_t	i;
 
@@ -85,7 +85,7 @@ char	**ft_split(char const *s, char c)
 	{
 		*(dst + word_i) = ft_split_dup(s, c, &i);
 		if (!(*(dst + word_i)))
-			return (ft_mem_alloc_fail(dst, word_i));
+			return (ft_split_mem_free(dst, word_i));
 		++word_i;
 	}
 	*(dst + word_total) = NULL;
