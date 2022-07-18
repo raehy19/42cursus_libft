@@ -6,7 +6,7 @@
 /*   By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 20:34:36 by rjeong            #+#    #+#             */
-/*   Updated: 2022/07/13 12:35:44 by rjeong           ###   ########.fr       */
+/*   Updated: 2022/07/18 21:00:37 by rjeong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	ft_cal_sign(const char *str, int *i)
 
 int	ft_atoi(const char *str)
 {
-	int			i;
-	int			sign;
-	long long	result;
+	int					i;
+	int					sign;
+	unsigned long long	result;
 
 	i = 0;
 	while (ft_isspace(*(str + i)))
@@ -47,10 +47,10 @@ int	ft_atoi(const char *str)
 	result = 0;
 	while (ft_isdigit(*(str + i)))
 	{
-		result = result * 10 + (long long)(*(str + i) - '0');
-		if (result * sign > 2147483647)
+		result = result * 10 + (unsigned long long)(*(str + i) - '0');
+		if (result > LONG_MAX && sign > 0)
 			return (-1);
-		if (result * sign < -2147483648)
+		if (result > ((unsigned long long)LONG_MAX + 1) && sign < 0)
 			return (0);
 		++i;
 	}
