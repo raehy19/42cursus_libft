@@ -39,6 +39,7 @@ int	ft_atoi(const char *str)
 	int					i;
 	int					sign;
 	unsigned long long	result;
+	unsigned long long	temp_result;
 
 	i = 0;
 	while (ft_isspace(*(str + i)))
@@ -47,11 +48,16 @@ int	ft_atoi(const char *str)
 	result = 0;
 	while (ft_isdigit(*(str + i)))
 	{
-		result = result * 10 + (unsigned long long)(*(str + i) - '0');
-		if (result > LONG_MAX && sign > 0)
-			return (-1);
-		if (result > ((unsigned long long)LONG_MAX + 1) && sign < 0)
+		temp_result = result * 10 + (unsigned long long)(*(str + i) - '0');
+		if (temp_result < result
+			|| (temp_result > LONG_MAX && sign > 0)
+			|| (temp_result > (unsigned long long)(-LONG_MIN) && sign < 0))
+		{
+			if (sign > 0)
+				return (-1);
 			return (0);
+		}
+		result = temp_result;
 		++i;
 	}
 	return ((int)(result * sign));
